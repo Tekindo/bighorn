@@ -1,9 +1,6 @@
-var path = require('path');
 module.exports = {
-    entry: "./src/js/app.js",
     output: {
-        path: "./www/js",
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
     devtool: '#source-map',
     module: {

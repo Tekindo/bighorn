@@ -1,17 +1,24 @@
 var gulp = require('gulp');
-var gutil = require("gulp-util");
-var webpack = require('webpack');
+var serve = require('gulp-serve');
+var gulpWebpack = require('webpack-stream');
+var webpack_config =require('./gulp.webpack.config.js');
+var WebpackDevServer = require("webpack-dev-server");
 
-// Webpack
-gulp.task("webpack", function(callback) {
-    webpack(
-        require('./webpack.config.js'),
-        function(err, stats) {
-            if(err) throw new gutil.PluginError("webpack", err);
-                
-            //gutil.log("[webpack]", stats.toString({}));
-        }
-    );
+
+gulp.task('webpack', function() {
+    return gulp.src('./src/js/app.js')
+        .pipe(gulpWebpack(webpack_config))
+        .pipe(gulp.dest('./www/js'));
 });
+
+gulp.task('mobile', function() {
+    return gulp.src('./src/js/app.js')
+        .pipe(gulpWebpack(webpack_config))
+        .pipe(gulp.dest('./mobile-app/www/js'));
+});
+gulp.task('dev-server', serve({
+    root: ['www'],
+    port: 8000
+}));
 
 gulp.task('default', ['webpack']);

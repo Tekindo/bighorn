@@ -21,4 +21,4 @@ gulp.task('dev-server', serve({
     port: 8000
 }));
 
-gulp.task('default', ['webpack']);
+gulp.task('default', ['webpack', 'dev-server']);

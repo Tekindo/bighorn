@@ -13,7 +13,6 @@ export default function counter(state=0, action) {
     
 export default function configureStore(initialState) {
     const store = createStore(counter, initialState, 
-      window.devToolsExtension ? window.devToolsExtension() : f => f
-    );
+      window.devToolsExtension ? window.devToolsExtension() : f => f);
     return store;
 }

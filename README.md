@@ -2,13 +2,12 @@
 Integration of cordova, react, redux.
 
 ## Installation
+'''
 cd path/to/source
-    - dowload the dependencies
 $ npm install
-    - create the bundle
 $ gulp webpack
-    - launch the server
 $ gulp
+'''
 
 ## Frameworks used
 

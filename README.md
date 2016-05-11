@@ -2,13 +2,13 @@
 Integration of cordova, react, redux.
 
 ## Installation
-'''
+
+```
 cd path/to/source
 $ npm install
 $ gulp webpack
 $ gulp
-'''
-
+```
 ## Frameworks used
 
  - Webpack + Babel : to bundle the js code and be able to use ES2015 features

@@ -20,7 +20,7 @@ module.exports = {
             {
                 test: /\.scss?$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: extractCSS.extract(["css", "sass"])
+                loader: extractCSS.extract('style',["css", "sass"])
             }
         ]
     },

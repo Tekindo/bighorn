@@ -1,8 +1,7 @@
 var gulp = require('gulp');
 var serve = require('gulp-serve');
 var gulpWebpack = require('webpack-stream');
-var webpack_config =require('./gulp.webpack.config.js');
-var WebpackDevServer = require("webpack-dev-server");
+var webpack_config =require('./webpack.config.js');
 
 
 gulp.task('webpack', function() {
@@ -16,9 +15,14 @@ gulp.task('mobile', function() {
         .pipe(gulpWebpack(webpack_config))
         .pipe(gulp.dest('./mobile-app/www'));
 });
+
+gulp.task('watch', function() {
+    gulp.watch(['src/**/*.scss', 'src/**/*.js'], ['webpack']);
+});
+
 gulp.task('dev-server', serve({
     root: ['www'],
     port: 8000
 }));
 
-gulp.task('default', ['webpack', 'dev-server']);
+gulp.task('default', ['dev-server', 'watch' ]);

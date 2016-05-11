@@ -1,6 +1,10 @@
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+var extractCSS = new ExtractTextPlugin("./styles/app-ui.css");
+
 module.exports = {
     output: {
-        filename: "bundle.js",
+        filename: "./js/bundle.js"
     },
     devtool: '#source-map',
     module: {
@@ -12,7 +16,15 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015']
                 }
+            },
+            {
+                test: /\.scss?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: extractCSS.extract(["css", "sass"])
             }
         ]
-    }
+    },
+    plugins: [
+		extractCSS
+	]
 };

@@ -25,4 +25,4 @@ gulp.task('dev-server', serve({
     port: 8000
 }));
 
-gulp.task('default', ['dev-server', 'watch' ]);
+gulp.task('default', ['dev-server', 'watch', 'webpack' ]);
